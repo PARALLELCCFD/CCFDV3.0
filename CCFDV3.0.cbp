@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="CCFDV3.0" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/CCFDV3" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="module/module_config/global_input.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_config/global_parameter_module.F90">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="module/module_config/initial.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_geometry/bc_module.F90">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="module/module_geometry/block_module.F90">
+			<Option weight="2" />
+		</Unit>
+		<Unit filename="module/module_geometry/boundary.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/cell_module.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_geometry/coordinate_module.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_geometry/geometry_bc_1to1.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/geometry_bc_1to1_array_allocate.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/geometry_boundary_1to1_parallel.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/geometry_boundary_bcfar.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/geometry_boundary_bcsym.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/geometry_boundary_bcwal.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/geometry_boundary_check.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/geometry_metric.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/get_block_boundary.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/get_blocks_coor.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_geometry/mesh_module.F90">
+			<Option weight="3" />
+		</Unit>
+		<Unit filename="module/module_geometry/metric_module.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_multigrid/geometry_bc_1to1_mg.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_multigrid/interpolate_solution.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_multigrid/post_smoothing.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_multigrid/pre_smoothing.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_multigrid/prolonged.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_multigrid/restrict.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_multigrid/tau_term.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_multigrid/variable_mg_module.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_output/force.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_output/output.F90" />
+		<Unit filename="module/module_output/residual_show.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_output/restart_output.F90">
+			<Option weight="3" />
+		</Unit>
+		<Unit filename="module/module_parallel/load_balance.F90" />
+		<Unit filename="module/module_parallel/mpi_initialization.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_parallel/mpi_para.F90">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="module/module_parallel/mpi_parameter_module.F90" />
+		<Unit filename="module/module_solution/flux_roe.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_solution/flux_viscous.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_solution/laminar_viscous_coefficient.F90" />
+		<Unit filename="module/module_solution/limit.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_solution/modify_primitive.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_solution/space_muscl.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_solution/steady.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_solution/time_step.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_solution/variable_module.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_time/lu_adi.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="module/module_turbulent/baldwin_lomax.F90" />
+		<Unit filename="module/module_turbulent/find_distance_bl.F90" />
+		<Unit filename="module/module_turbulent/find_distance_min.F90" />
+		<Unit filename="module/module_turbulent/spalart_allmaras.F90" />
+		<Unit filename="module/module_turbulent/spalart_allmaras.F90.txt" />
+		<Unit filename="module/module_turbulent/turbulent_init.F90" />
+		<Unit filename="module/module_turbulent/turbulent_module.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="module/module_turbulent/turbulent_viscous_coefficient.F90" />
+		<Unit filename="module/module_turbulent/vorticity_magnitude.F90" />
+		<Unit filename="source/input_grids_cgns.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="source/main.F90">
+			<Option weight="1" />
+		</Unit>
+		<Unit filename="source/steady_cfd.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="tools/cgns_reader.F90">
+			<Option weight="4" />
+		</Unit>
+		<Unit filename="tools/heap_sort.F90" />
+		<Unit filename="tools/shell_sort.F90" />
+		<Unit filename="tools/sta_aero.F90">
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="tools/triangles.F90" />
+		<Unit filename="tools/user_math.F90">
+			<Option weight="0" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
