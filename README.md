@@ -33,3 +33,5 @@ make
 make clean
 
 #you can delete the -DPMPI when you want complier the ccfd_seq in a host processor computing!
+
+PS1：2019年1月8日10:55:19 修改了开式温度和兰金温度的转换错误。
