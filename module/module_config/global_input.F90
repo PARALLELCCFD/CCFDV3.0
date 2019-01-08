@@ -144,6 +144,7 @@
                 write(*,'("warning::and default temperature is 288.15")')
                 tinf = 288.15
             end if
+            tinf = tinf * 1.8
             !>
             !>
 #if defined DEBUG
