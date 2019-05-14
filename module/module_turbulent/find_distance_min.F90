@@ -164,7 +164,7 @@
             allocate(ipoint_array(wallnpts))
             allocate(ipoint_array_tmp(wallnpts))
             allocate(isplit_array(wallnpts))
-            allocate(test_tmp(minbox))
+            allocate(test_tmp(wallnpts))
             !>
             !>
             do i=1,wallnpts
