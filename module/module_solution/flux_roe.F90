@@ -39,99 +39,6 @@
                             t9,t10,t11,t12,t13,t14,t15,t16,t17,&
                             t18,t19,t20
 
-#if 0
-        zero   = 1.e-15
-        !>roe-averaged
-        !>
-        gx = ax*aa
-        gy = ay*aa
-        gz = az*aa
-        !>
-        gagm = gamma / gm1
-        c1   = sqrt(rr/rl)
-        c2   = 1./(1.+c1)
-        hl   = gagm*pl/rl+0.5*(ul*ul+vl*vl+wl*wl)
-        hr   = gagm*pr/rr+0.5*(ur*ur+vr*vr+wr*wr)
-        ra =sqrt(rr*rl)
-        ua =(ul+ur*c1)*c2
-        va =(vl+vr*c1)*c2
-        wa =(wl+wr*c1)*c2
-        ha =(hl+hr*c1)*c2
-        ca =sqrt(gm1*(ha-0.5*(ua*ua+va*va+wa*wa)))
-
-        dun =ax*(ur-ul)+ay*(vr-vl)+az*(wr-wl)
-        uan =ax*ua     +ay*va     +az*wa
-        !>entropy fix for eigenvalue (eig1,eig2 and eig3)
-        !> roe schemes for all speed methods
-        !>
-#if 0
-        lmach = (uban/aa)/ca
-        m1   = 1 - lmach*lmach
-        m2   = 1 + lmach*lmach
-        m3   = lmach*sqrt(4+m1*m1)/m2
-        allspeedroe = min(1.e0,m3)
-        ca = allspeedroe * ca
-        !> roe schemes for all speed methods
-        !>
-        !>
-        if(xmach .lt. 0.3e0)then
-            m1   = 1 - xmach*xmach
-            m2   = 1 + xmach*xmach
-            m3   = xmach*sqrt(4+m1*m1)/m2
-            allspeedroe = min(1.e0,m3)
-            ca = allspeedroe * ca
-        end if
-#endif
-        !>
-
-        eig1  =abs(uan)
-        eig2  =abs(uan+ca)
-        eig3  =abs(uan-ca)
-        !> used the limiter eigenvalues a la-harten and gnoffo
-        !> implicit tvd schemes for hyperbolic conservation laws in curvilinear coordinates
-        !> the shock-caputring schemes
-        !> 0.01  < epsa_r < 0.4
-        !> 0.1   < epsaa  < 0.3     approximate range for blunt bodies
-        !> 0.005 < epsaa  < 0.05    approximate range for slender bodies
-        if(epsa_r .gt. 0)then
-            epsaa = epsa_r*(ca + abs(ua) + abs(va) + abs(wa))
-            epsbb = 0.25/max(epsaa,zero)
-            epscc = 2.00*epsaa
-            if(real(eig1) .lt. real(epscc)) eig1= eig1*eig1*epsbb+epsaa
-            if(real(eig2) .lt. real(epscc)) eig2= eig2*eig2*epsbb+epsaa
-            if(real(eig3) .lt. real(epscc)) eig3= eig3*eig3*epsbb+epsaa
-        end if
-
-        !> calculation of the |a|(qr-ql) terms
-
-        ca2    = ca*ca
-        ca3    = ra*ca*dun
-        prpl   = pr-pl
-        eigra  = eig1*ra
-
-        c1 =eig1*(rr-rl-prpl/ca2)
-        c2 =0.5*eig2*(prpl+ca3)/ca2
-        c3 =0.5*eig3*(prpl-ca3)/ca2
-        c4 =c1+c2+c3
-        c5 =ca*(c2-c3)
-        c6 =eigra*(ur-ul-ax*dun)
-        c7 =eigra*(vr-vl-ay*dun)
-        c8 =eigra*(wr-wl-az*dun)
-        c9 =ha*c4+uan*c5+ua*c6+va*c7+wa*c8-c1*ca2*gm
-        !> calculation the flux  f(i-1/2) = 0.5*( fr+fl -|a|(qr-ql))
-        unr =gx*ur+gy*vr+gz*wr
-        unl =gx*ul+gy*vl+gz*wl
-
-        rr  =rr*unr
-        rl  =rl*unl
-        pr  =pr+pl
-!        write(120,'("n6=",5e24.16)') UNR,UNL,RR,RL,PR
-        f1 =0.5*(rr   +rl               - aa*c4)
-        f2 =0.5*(rr*ur+rl*ul+gx*pr      - aa*(ua*c4+ax*c5+c6))
-        f3 =0.5*(rr*vr+rl*vl+gy*pr      - aa*(va*c4+ay*c5+c7))
-        f4 =0.5*(rr*wr+rl*wl+gz*pr      - aa*(wa*c4+az*c5+c8))
-        f5 =0.5*(rr*hr+rl*hl            - aa*c9)
-#else
         t1 = rr-rl
         t2 = ur-ul
         t3 = vr-vl
@@ -223,6 +130,6 @@
         f3 = t7*f3
         f4 = t7*f4
         f5 = t7*f5
-#endif
+
         return
     end subroutine roe
